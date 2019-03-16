@@ -1,0 +1,409 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Navigation and Pages Change · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.html" />
+    
+    
+    <link rel="prev" href="2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Flutter Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/">
+            
+                <a href="../part1/">
+            
+                    
+                    Flutter Basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../part1/1.html">
+            
+                <a href="../part1/1.html">
+            
+                    
+                    Stateful and Stateless Widget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../part1/2.html">
+            
+                <a href="../part1/2.html">
+            
+                    
+                    Parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    Debug Flutter Apps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    ListView and Conditional
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    Navigation and Pages Change
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    Handling User Input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    More Widgets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Navigation and Pages Change</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="navigation">Navigation</h1>
+<p><code>Navigator</code> Navigation in Flutter, pages are managed as stack, last in first out. The last pushed in page is visible.</p>
+<pre><code class="lang-dart">Navigator.push(context, MaterialPageRoute(builder:(BuildContext)=&gt; NewPage()))
+</code></pre>
+<p><code>Navigator.push().then(value)</code> will listen to value once the <code>Navigator.pop(context,value)</code> passed a value.</p>
+<ul>
+<li>When former page use <code>push</code>, the latter page will have back button on its Appbar. Use Widget <code>WillPopScope</code> to use back button in the appBar.</li>
+<li>When former page use <code>pushReplacement</code>, the former page is destroyed from the stack.</li>
+</ul>
+<p><strong>Navigation between Stacks</strong>:<br>Switch between different stacks can cause info loss on the page.</p>
+<p><strong>Tabs</strong>:<br>Wrap <code>Scaffold</code> with <code>DefaultTabController</code>, add <code>TapBar(tabs:[])</code> in <code>AppBar(bottom:)</code>. Next, create <code>TabBarView(children:[])</code> in body and rendering pages(tab pages are embedded, there will not be a scaffold).</p>
+<p><strong>Routes</strong>:</p>
+<ul>
+<li>Named Routes(routes)</li>
+<li>onGenerateRoute</li>
+<li>onUnknownRoute
+in <code>MaterialApp</code>, add</li>
+</ul>
+<pre><code class="lang-dart">routes: {
+    <span class="hljs-string">&apos;/admin&apos;</span>: (BuildContext context) =&gt; ProductsAdminPage(),
+    <span class="hljs-string">&apos;/&apos;</span>: (BuildContext context) =&gt; ProductsPage(_products,_addProduct,_deleteProduct),
+    },
+onGenerateRoute: (RouteSettings settings) {
+    <span class="hljs-keyword">final</span> <span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt; pathElements = settings.name.split(<span class="hljs-string">&apos;/&apos;</span>);
+    <span class="hljs-keyword">if</span> (pathElements[<span class="hljs-number">0</span>] != <span class="hljs-string">&apos;&apos;</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+    <span class="hljs-keyword">if</span> (pathElements[<span class="hljs-number">1</span>] == <span class="hljs-string">&apos;product&apos;</span>) {
+        <span class="hljs-keyword">final</span> <span class="hljs-built_in">int</span> index = <span class="hljs-built_in">int</span>.parse(pathElements[<span class="hljs-number">2</span>]);
+        <span class="hljs-keyword">return</span> MaterialPageRoute(
+        builder: (BuildContext context) =&gt;
+            ProductPage(_products[index][<span class="hljs-string">&apos;image&apos;</span>], _products[index][<span class="hljs-string">&apos;title&apos;</span>]),
+        );
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+</code></pre>
+<p><strong>Alert</strong>
+<code>showDialog</code></p>
+<pre><code class="lang-dart">showDialog(
+    context: context,
+    builder: (BuildContext context) {
+        <span class="hljs-keyword">return</span> AlertDialog(
+        title: Text(<span class="hljs-string">&apos;R U SURE&apos;</span>),
+        content: Text(<span class="hljs-string">&apos;this action cannot be undone&apos;</span>),
+        actions: &lt;Widget&gt;[
+            FlatButton(
+            child: Text(<span class="hljs-string">&apos;DISCARD&apos;</span>),
+            onPressed: () {
+                Navigator.pop(context);
+            },
+            ),
+            FlatButton(
+            child: Text(<span class="hljs-string">&apos;CONTINUE&apos;</span>),
+            onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context, <span class="hljs-keyword">true</span>);
+            },
+            )
+        ],
+        );
+    });
+</code></pre>
+<p><strong>Modal</strong>
+<code>showModalBottomSheet</code></p>
+<p><img src="summary.png" alt="alt text"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.html" class="navigation navigation-prev " aria-label="Previous page: ListView and Conditional">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.html" class="navigation navigation-next " aria-label="Next page: Handling User Input">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Navigation and Pages Change","level":"1.2.5","depth":2,"next":{"title":"Handling User Input","level":"1.2.6","depth":2,"path":"part2/4.md","ref":"part2/4.md","articles":[]},"previous":{"title":"ListView and Conditional","level":"1.2.4","depth":2,"path":"part2/2.md","ref":"part2/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/3.md","mtime":"2019-03-14T08:59:10.835Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-16T03:23:13.408Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
